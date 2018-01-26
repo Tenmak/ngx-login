@@ -1,0 +1,7 @@
+<ngx-side-navigation (isMenuOpen)="getMenuStatus($event)"></ngx-side-navigation>
+
+<ngx-header [isMenuOpen]="isMenuOpen"></ngx-header>
+
+<div [ngClass]="{'menu-reduced-container': !isMenuOpen, 'menu-expanded-container': isMenuOpen}">
+    <router-outlet></router-outlet>
+</div>

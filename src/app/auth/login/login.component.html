@@ -1,0 +1,42 @@
+<div id="login-v2-form">
+
+  <div translation class="title">
+    Portail d'authentification
+  </div>
+
+  <form novalidate [formGroup]="user" (ngSubmit)="onSubmit()">
+
+    <div formGroupName="account">
+
+      <mat-input-container>
+        <input translation matInput type="text" placeholder="Votre mail *" formControlName="email" autocomplete="off">
+        <mat-hint translation class="error" *ngIf="user.get('account.email').hasError('required') && user.get('account.email').touched">
+          Email Requis !
+        </mat-hint>
+        <mat-hint translation class="error" *ngIf="user.get('account.email').hasError('pattern') && user.get('account.email').touched">
+          Email incorrect !
+        </mat-hint>
+      </mat-input-container>
+
+      <mat-input-container>
+        <input translation matInput type="password" placeholder="Votre mot de passe  *" minlength="6" formControlName="password"
+          autocomplete="off">
+        <mat-hint translation class="error" *ngIf="user.get('account.password').hasError('required') && user.get('account.password').touched">
+          Mot de passe requis !
+        </mat-hint>
+      </mat-input-container>
+
+      <a translation [routerLink]="['/auth/forgot-password']" color="accent" class="forgot-password">Mot de passe oublié ?</a>
+    </div>
+
+    <button translation mat-raised-button [disabled]="!user.valid || submitted" color="accent" type="submit" class="submit-button">
+      LOG IN
+    </button>
+
+  </form>
+
+  <div class="spinner">
+    <fa [name]="'circle-o-notch'" [size]=4 [spin]=true *ngIf="loading"></fa>
+  </div>
+
+</div>

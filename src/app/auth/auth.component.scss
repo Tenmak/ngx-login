@@ -1,0 +1,53 @@
+#auth-v2 {
+    height: 100%;
+    overflow: hidden;
+    background: url('/assets/backgrounds/august.jpg') no-repeat;
+    background-size: cover;
+    #auth-v2-intro {
+        padding: 128px;
+        // color: #FFFFFF;
+        color: brown;
+        .logo {
+            width: 256px;
+            line-height: 128px;
+            font-size: 86px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            margin-left: 1px;
+            // color: #FFFFFF;
+            color: brown;
+            border-radius: 2px;
+            text-align: center;
+            img {
+                width: 100%;
+            }
+        }
+        .title {
+            font-size: 36px;
+            font-weight: 300;
+        }
+        .description {
+            padding-top: 8px;
+            font-size: 14px;
+            max-width: 600px;
+        }
+    }
+    #auth-v2-signup {
+        .title-lower {
+            font-size: 20px;
+            font-weight: 300;
+        }
+        .submit-button {
+            width: 50%;
+            margin: 16px auto;
+            display: inline-block;
+        }
+    }
+    #auth-v2-form-wrapper {
+        width: 416px;
+        min-width: 416px;
+        max-width: 416px;
+        height: 100%;
+        background: #FFFFFF;
+    }
+}

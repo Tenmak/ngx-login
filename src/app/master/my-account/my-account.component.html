@@ -1,0 +1,118 @@
+<div id="account">
+
+    <div class="content" fxLayout="row">
+
+        <!-- User profile picture update : -->
+        <div fxFlex="10">
+            <!-- TO DO : UPLOAD HERE -->
+        </div>
+
+        <div fxFlex="90">
+
+            <div id="passwordForm">
+                <!-- User password update : -->
+                <div>
+                    <i class="fa fa-shield"></i>
+                    <span class="text-icon">Vous pouvez modifier votre compte ici :</span>
+                    <hr>
+                </div>
+
+                <span class="text-content">Modification du mot de passe</span>
+
+                <form novalidate [formGroup]="userPassword">
+                    <div class="first-line">
+                        <mat-input-container>
+                            <input matInput type="password" placeholder="Mot de passe actuel *" minlength="6" formControlName="currentPassword">
+                            <mat-hint class="error" *ngIf="userPassword.get('currentPassword').hasError('required') && userPassword.get('currentPassword').touched">
+                                Mot de passe requis
+                            </mat-hint>
+                        </mat-input-container>
+
+                        <mat-input-container>
+                            <input matInput type="password" placeholder="Nouveau mot de passe *" minlength="6" formControlName="password">
+                            <mat-hint class="error" *ngIf="userPassword.get('password').hasError('required') && userPassword.get('password').touched">
+                                Mot de passe requis
+                            </mat-hint>
+                        </mat-input-container>
+
+                        <mat-input-container>
+                            <input matInput type="password" (paste)="onPaste($event)" placeholder="Confirmation du nouveau mot de passe *" minlength="6"
+                                formControlName="passwordConfirm">
+                            <mat-hint class="error" *ngIf="userPassword.get('passwordConfirm').hasError('required') && userPassword.get('passwordConfirm').touched && !userPassword.hasError('mismatchedPasswords')">
+                                Mot de passe requis
+                            </mat-hint>
+                            <mat-hint class="error" *ngIf="userPassword.hasError('mismatchedPasswords')">
+                                Les mots de passe ne correspondent pas
+                            </mat-hint>
+                        </mat-input-container>
+                    </div>
+
+                    <div class="second-line">
+                        <button mat-raised-button (click)="onPasswordFormSubmit()" [disabled]="!userPassword.valid || submittedPasswordButton" color="accent"
+                            type="button" class="submit-button">
+                            <fa class="spinner-inline" [name]="'circle-o-notch'" [size]=1 [spin]=true *ngIf="loadingPasswordButton"></fa>
+                            Modifier le mot de passe
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="userForm">
+                <!-- User informations update : -->
+                <div>
+                    <i class="fa fa-id-card-o"></i>
+                    <span class="text-icon">Modification des informations personnelles :</span>
+                    <hr>
+                </div>
+
+                <form novalidate [formGroup]="userInformations">
+                    <div class="first-line">
+                        <mat-input-container>
+                            <input matInput type="text" name="lastName" placeholder="Prénom" formControlName="lastName">
+                        </mat-input-container>
+
+                        <mat-input-container>
+                            <input matInput type="text" name="firstName" placeholder="Nom" formControlName="firstName">
+                        </mat-input-container>
+
+                        <mat-input-container>
+                            <input matInput type="text" name="function" placeholder="Fonction" formControlName="position">
+                        </mat-input-container>
+                    </div>
+
+                    <div class="second-line">
+                        <mat-input-container>
+                            <input matInput type="text" name="email" placeholder="Email *" formControlName="email">
+                            <mat-hint class="error" *ngIf="userInformations.get('email').hasError('required') && userInformations.get('email').touched">
+                                Email requis
+                            </mat-hint>
+                            <mat-hint class="error" *ngIf="userInformations.get('email').hasError('pattern') && userInformations.get('email').touched">
+                                Email incorrect
+                            </mat-hint>
+                        </mat-input-container>
+
+                        <mat-input-container>
+                            <input matInput type="text" name="phone" placeholder="Téléphone" formControlName="phone">
+                            <mat-hint class="error" *ngIf="userInformations.get('phone').hasError('pattern') && userInformations.get('phone').touched">
+                                Numéro incorrect
+                            </mat-hint>
+                        </mat-input-container>
+
+                        <button mat-raised-button (click)="onUserFormSubmit()" color="accent" type="submit" class="submit-button" [disabled]="!userInformations.valid || submittedInformationsButton || userInformations.pristine">
+                            <fa class="spinner-inline" [name]="'circle-o-notch'" [size]=1 [spin]=true *ngIf="loadingInformationsButton"></fa>
+                            Modifier les données
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="end">
+                <button (click)="return()" mat-raised-button type="button">
+                    Retour
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</div>

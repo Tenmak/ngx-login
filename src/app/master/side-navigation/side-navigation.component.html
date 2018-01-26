@@ -1,0 +1,53 @@
+<div [ngClass]="{'container': !isOpen, 'container-toggle': isOpen}">
+    <div class="header">
+        <div class="short-logo-container" *ngIf="!isOpen" (click)="navigateTo('/dashboard')">
+            <img src="../../../assets/icons/1.png" class="logo">
+        </div>
+        <div class="long-logo-container" *ngIf="isOpen" (click)="navigateTo('/dashboard')">
+            <img src="../../../assets/icons/2.png" class="logo">
+        </div>
+    </div>
+
+    <div class="list-menu">
+        <ul>
+            <div *ngFor="let treeRoot of navigationTree; let i = index;">
+                <ul>
+                    <li (click)="showMyChildren(i, treeRoot)" [ngClass]="{'submenu': !showChildren[i], 'submenu-active': showChildren[i]}" matTooltip="Test"
+                        [matTooltipPosition]="'after'" [matTooltipShowDelay]="200" [matTooltipDisabled]="isOpen">
+                        <div class="menu-parent">
+                            <i class="material-icons">{{treeRoot.materialIcon}}</i>
+                            <div class="title-item-menu" *ngIf="!showChildren[i]">TEST1
+                                <i *ngIf="treeRoot.children.length > 1" class="material-icons">keyboard_arrow_right</i>
+                            </div>
+                            <div class="title-item-menu" *ngIf="showChildren[i]">TEST2
+                                <i *ngIf="treeRoot.children.length > 1" class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                        </div>
+                        <div *ngFor="let treeChild of treeRoot.children; let j = index;">
+                            <ul>
+                                <li class="child-item" (click)="navigateTo(treeChild.path, treeChild.queryParams, j, i, $event)" matTooltip="Test" [matTooltipPosition]="'after'"
+                                    [matTooltipShowDelay]="200" [matTooltipDisabled]="isOpen">
+                                    <i class="material-icons">{{treeChild.materialIcon}}</i>
+                                    <div class="title-item-menu">TEST3</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </ul>
+    </div>
+
+    <div class="list-menu-expand">
+        <ul>
+            <div>
+                <li class="expand-menu" *ngIf="!isOpen" (click)="displayMenu()">
+                    <i class="material-icons">exit_to_app</i>
+                </li>
+                <li class="expand-menu" *ngIf="isOpen" (click)="displayMenu()">
+                    <i class="material-icons reverse">exit_to_app</i>
+                </li>
+            </div>
+        </ul>
+    </div>
+</div>

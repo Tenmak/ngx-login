@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
 
+### 
+
+The aim in this project is to focus on two main points :
+  - How you can use the Angular Router to build awesome UI designs (e.g. `AuthModule`)
+  - How Angular Modules should manage their own routes and logic.
+  
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

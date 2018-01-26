@@ -1,0 +1,25 @@
+.menu-reduced-container {
+    margin-left: 64px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    // margin-top:64px;
+    padding-top: 64px;
+    height: calc(100% - 64px);
+}
+
+.menu-expanded-container {
+    margin-left: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    // margin-top:64px;
+    padding-top: 64px;
+    height: calc(100% - 64px);
+}
+
+.menu-expanded-header {
+    margin-left: 280px;
+}
+
+.menu-reduced-header {
+    margin-left: 64px;
+}

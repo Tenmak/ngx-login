@@ -1,0 +1,142 @@
+// The involved HTML is actually in another overlay, and thus is not inside the header definition
+.lang-desc {
+  padding-left: 5px;
+}
+
+#header {
+  font-family: 'Open Sans Semibold';
+  height: 64px;
+  position:fixed;
+  z-index:9;
+  width:100%;
+  color: #4d4e55;
+  background-color: #f6f6f6;
+  -webkit-box-shadow: inset 0px -4px 20px -3px rgba(0,0,0,0.19);
+  -moz-box-shadow: inset 0px -4px 20px -3px rgba(0,0,0,0.19);
+  box-shadow: inset 0px -4px 20px -3px rgba(0, 0, 0, 0.19);
+
+  .username {
+    display: inline !important;
+    text-transform: uppercase;
+  }
+
+  .logo {
+    width: 30px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  .avatar {
+    width: 22px;
+    margin-right: 5px;
+  }
+
+  .separator {
+    height: 44px;
+    margin: 10px 0px;
+    width: 1px;
+    background: #b6b3b3;
+  }
+
+  .header-with-menu-reduced {
+    margin-left:64px;
+    width: calc(100% - 64px);
+  }
+
+  .header-with-menu-expanded {
+    margin-left:280px;
+    width: calc(100% - 280px);
+  }
+
+  .search {
+    width: 70px;
+
+    img {
+      width: 22px;
+    }
+
+    .search-button {
+      padding: 0;
+      height:100%;
+      min-width: 100%;
+    }
+
+    .search-bar {
+      position: absolute;
+      height: 64px;
+      top: 0;
+      left: 0;
+      background: #FFFFFF;
+      z-index: 999;
+      -webkit-box-shadow: inset 0px -4px 20px -3px rgba(0,0,0,0.19);
+      -moz-box-shadow: inset 0px -4px 20px -3px rgba(0,0,0,0.19);
+      box-shadow: inset 0px -4px 20px -3px rgba(0, 0, 0, 0.19);
+
+      input {
+        width: 100%;
+        border: none;
+        font-size: 16px;
+        background: transparent;
+      }
+
+      input:focus {
+        outline: none !important;
+      }
+
+      i {
+        font-size: 25px;
+        color: grey;
+        cursor: pointer;
+      }
+    }
+
+    .search-bar-icon {
+      display: block;
+      width: 25px;
+      height: 25px;
+      padding: 18px;
+    }
+  }
+
+  .search-result {
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 65px;
+    mat-card {
+      padding-left:0px;
+      padding-right:0px;
+    }
+    span {
+      vertical-align: super;
+    }
+    .results {
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+    .results:hover {
+      background-color: rgba(198, 198, 198, 0.5);
+    }
+    .no-results {
+      padding: 10px 20px;
+    }
+  }
+
+  .flag-icon {
+    width: 20px;
+    margin-right: 5px;
+  }
+
+  .sidebar-button {
+    min-width: 67px;
+  }
+
+  .lang {
+    span {
+      height: 19px;
+    }
+  }
+  .middle {
+    vertical-align: middle;
+  }
+}

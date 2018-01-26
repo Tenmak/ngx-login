@@ -1,0 +1,67 @@
+  #account {
+    .content {
+      padding: 30px;
+      i {
+      color: #9ac331;
+      }
+      a {
+        color: #9ac331;
+      }
+      .text-content, .text-content2 {
+        display: block;
+        line-height: 25px;
+        margin-bottom: 10px;
+      }
+      .spinner-inline {
+        padding-right: 3px;
+        vertical-align: inherit;
+      }
+
+      #passwordForm {
+          margin-bottom: 10px;
+          .first-line, .second-line {
+          button {
+            left: 60%;
+            width: 20%;
+            margin-left: 2.5%;
+          }
+          mat-input-container {
+            width: 26%;
+            margin-bottom: 20px;
+            margin-left:2.5%;
+            margin-right: 2.5%;
+          }
+          mat-input-container:first-child {
+            margin-left: 0px;
+          }
+          mat-input-container:last-child {
+            margin-right: 0px;
+          }
+        }
+      }
+
+      #userForm {
+          .first-line, .second-line {
+          button {
+            width: 20%;
+            margin-left: 2.5%;
+          }
+          mat-input-container {
+            width: 26%;
+            margin-bottom: 20px;
+            margin-left:2.5%;
+            margin-right: 2.5%;
+          }
+          mat-input-container:first-child {
+            margin-left: 0px;
+          }
+          mat-input-container:last-child {
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+    .error {
+      color: #d50000;
+    }
+  }

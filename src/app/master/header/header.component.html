@@ -1,0 +1,87 @@
+<div id="header" fxLayout="row" fxLayoutAlign="space-between">
+    <div fxLayout="row" fxLayoutAlign="start">
+        <div class="separator"></div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="end">
+
+        <div class="search">
+            <button mat-button class="search-button" (click)="expand()">
+                <img src="../assets/images/header/search.png">
+            </button>
+
+            <div fxLayout="row" *ngIf="searchBarExpand" class="search-bar" [ngClass]="{'header-with-menu-reduced': !isMenuOpen, 'header-with-menu-expanded': isMenuOpen}">
+                <img class="search-bar-icon" (click)="expand()" src="../assets/images/header/search.png">
+                <input autofocus placeholder="Rechercher" (keyup)="updateFilter($event)">
+                <mat-icon class="search-bar-icon" (click)="expand()">
+                    <i class="material-icons">close</i>
+                </mat-icon>
+            </div>
+        </div>
+
+        <div class="search-result" *ngIf="searchIsActivated" [ngClass]="{'header-with-menu-reduced': !isMenuOpen, 'header-with-menu-expanded': isMenuOpen}">
+            <mat-card>
+                <div class="no-results" *ngIf="searchResult.length == 0">
+                    <span>Pas de résultats</span>
+                </div>
+            </mat-card>
+        </div>
+
+        <div class="separator"></div>
+
+        <button mat-button [matMenuTriggerFor]="account">
+            <img class="avatar" src="assets/images/header/people.png">
+            <span class="username" fxHide.sm> Alex Beugnet</span>
+            <mat-icon>
+                <i class="material-icons">keyboard_arrow_down</i>
+            </mat-icon>
+        </button>
+
+        <mat-menu #account="matMenu">
+
+            <button mat-menu-item (click)="navigateTo('/account')">
+                <mat-icon>
+                    <i class="material-icons">account_circle</i>
+                </mat-icon>
+                <span>Mon compte</span>
+            </button>
+
+            <button mat-menu-item (click)="logOut()">
+                <mat-icon>
+                    <i class="material-icons">exit_to_app</i>
+                </mat-icon>
+                <span>Se déconnecter</span>
+            </button>
+        </mat-menu>
+
+        <div class="separator"></div>
+
+        <button mat-button [matMenuTriggerFor]="language">
+            <div class="lang" fxLayout="column" fxLayoutAlign="center center">
+                <span *ngIf="currentLanguage === 'fr'">FR</span>
+                <span *ngIf="currentLanguage === 'en'">EN</span>
+                <i fxFlexAlign="center" class="material-icons middle">keyboard_arrow_down</i>
+            </div>
+        </button>
+
+        <mat-menu #language="matMenu">
+            <button mat-menu-item>
+                <img class="flag-icon" src="assets/images/flags/us.png">
+                <span class="lang-desc">Anglais</span>
+            </button>
+
+            <button mat-menu-item>
+                <img class="flag-icon" src="assets/images/flags/fr.png">
+                <span class="lang-desc">Français</span>
+            </button>
+        </mat-menu>
+
+        <div class="separator"></div>
+
+        <!--<button mat-button class="sidebar-button" (click)="openSideBar()">
+      <mat-icon class="search-bar-icon">
+        <i class="material-icons">notifications_active</i>
+      </mat-icon>
+    </button>-->
+    </div>
+</div>
